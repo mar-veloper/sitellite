@@ -8,6 +8,10 @@ const slice = createSlice({
     list: [],
     loading: false,
     lastFetch: null,
+    specificSatellite: {
+      data: [],
+      lastFetch: null,
+    },
   },
   reducers: {
     satellitesRequested: (satellites, action) => {
@@ -23,6 +27,19 @@ const slice = createSlice({
     satellitesRequestFailed: (satellites, action) => {
       satellites.loading = false;
     },
+    specificSatelliteRequested: (satellites, action) => {
+      satellites.loading = true;
+    },
+
+    specificSatelliteReceived: (satellites, action) => {
+      satellites.specificSatellite.data = action.payload;
+      satellites.loading = false;
+      satellites.specificSatellite.lastFetch = Date.now();
+    },
+
+    specificSatelliteRequestFailed: (satellites, action) => {
+      satellites.loading = false;
+    },
   },
 });
 
@@ -30,12 +47,14 @@ const {
   satellitesRequested,
   satellitesReceived,
   satellitesRequestFailed,
+  specificSatelliteRequested,
+  specificSatelliteReceived,
+  specificSatelliteRequestFailed,
 } = slice.actions;
 
 export default slice.reducer;
 
 const url = "?payload_type=Satellite";
-const unknown = null || undefined;
 
 export const loadSatellites = () => (dispatch, getState) => {
   const { lastFetch } = getState().satellites;
@@ -53,12 +72,31 @@ export const loadSatellites = () => (dispatch, getState) => {
   );
 };
 
+// param = payload_id
+
+export const loadSpecificSatellite = (payloadId) => (dispatch, getState) => {
+  const { lastFetch, data } = getState().satellites.specificSatellite;
+  const diffInMinutes = moment().diff(moment(lastFetch), "minutes");
+  const payloadIdInCache = data.payload_id;
+
+  if (diffInMinutes < 30 && payloadIdInCache === payloadId) return;
+
+  return dispatch(
+    apiCallBegan({
+      url: `/${payloadId}`,
+      onStart: specificSatelliteRequested.type,
+      onSuccess: specificSatelliteReceived.type,
+      onError: specificSatelliteRequestFailed.type,
+    })
+  );
+};
+
 export const getSatellites = createSelector(
   (state) => state.satellites,
   (satellites) => satellites.list.filter((satellite) => satellite.manufacturer)
 );
 
-export const getSatellitesManufacturers = createSelector(
+export const getSatelliteManufacturers = createSelector(
   (state) => state.satellites,
   (satellites) => [
     ...new Set(satellites.list.map((satellite) => satellite.manufacturer)),
