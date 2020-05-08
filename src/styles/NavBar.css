@@ -1,0 +1,36 @@
+a {
+  color: white;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: grid;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
+}
+.icon {
+  width: 56px;
+  height: 56px;
+  background-image: radial-gradient(#cd53fa, #5f157a);
+  border: 8px #5d107c solid;
+  border-radius: 50px;
+  margin-bottom: 4px;
+}
+
+a.active .icon {
+  width: 64px;
+  height: 64px;
+  background-image: radial-gradient(#921fbe, #431157);
+  border: 4px #f4d6ff solid;
+  border-radius: 50px;
+  margin-bottom: 4px;
+}
+
+.icon img {
+  margin-top: 27%;
+  height: 50%;
+  width: 50%;
+}

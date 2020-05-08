@@ -4,8 +4,11 @@ import {
   loadSatellites,
   getSatellites,
   getSatelliteManufacturers,
+  getRandomSatelliteImage,
 } from "../store/satellites";
 import { Link } from "react-router-dom";
+
+import "../styles/Satellites.css";
 
 const Satellites = () => {
   const dispatch = useDispatch();

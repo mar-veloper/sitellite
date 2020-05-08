@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loadSpecificSatellite } from "../store/satellites";
+import {
+  loadSpecificSatellite,
+  getSpecificSatelliteData,
+  getRandomSatelliteImage,
+} from "../store/satellites";
 
 const SpecificSatellite = ({ match }) => {
   const dispatch = useDispatch();
@@ -8,15 +12,14 @@ const SpecificSatellite = ({ match }) => {
 
   useEffect(() => {
     dispatch(loadSpecificSatellite(payloadId));
-  });
+  }, []);
 
-  const selectedSatellite = [
-    useSelector((state) => state.satellites.specificSatellite.data),
-  ];
+  const satelliteData = useSelector(getSpecificSatelliteData);
+  const randomSatImg = useSelector(getRandomSatelliteImage);
 
   return (
     <div>
-      {selectedSatellite.map(
+      {satelliteData.map(
         (
           {
             payload_id,
@@ -31,7 +34,7 @@ const SpecificSatellite = ({ match }) => {
         ) => (
           <div key={index}>
             <h1>{payload_id}</h1>
-            <img src="link-here" alt="image here" />
+            <img src={randomSatImg} alt={payload_id} />
             <div>
               <ul>
                 <li>
@@ -53,15 +56,6 @@ const SpecificSatellite = ({ match }) => {
                   Orbit: <strong>{orbit}</strong>
                 </li>
                 <li>Reference System: {orbit_params.reference_system}</li>
-                <li>
-                  Nationality: <strong>{nationality}</strong>
-                </li>
-                <li>
-                  Manufacturer: <strong>{manufacturer}</strong>
-                </li>
-                <li>
-                  Manufacturer: <strong>{manufacturer}</strong>
-                </li>
               </ul>
             </div>
           </div>

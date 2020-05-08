@@ -2,12 +2,15 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 import { apiCallBegan } from "./apiCall";
 import moment from "moment";
 
+import images from "../img/images";
+
 const slice = createSlice({
   name: "satellites",
   initialState: {
     list: [],
     loading: false,
     lastFetch: null,
+    images: { ...images },
     specificSatellite: {
       data: [],
       lastFetch: null,
@@ -96,9 +99,27 @@ export const getSatellites = createSelector(
   (satellites) => satellites.list.filter((satellite) => satellite.manufacturer)
 );
 
+export const getSpecificSatelliteData = createSelector(
+  (state) => state.satellites.specificSatellite,
+  (specificSatellite) => [specificSatellite.data]
+);
+
 export const getSatelliteManufacturers = createSelector(
   (state) => state.satellites,
   (satellites) => [
     ...new Set(satellites.list.map((satellite) => satellite.manufacturer)),
   ]
+);
+
+export const getSatellitesImages = createSelector(
+  (state) => state.satellites.images,
+  (images) => images
+);
+
+export const getRandomSatelliteImage = createSelector(
+  (state) => state.satellites.images,
+  (images) => {
+    let randomNum = Math.floor(Math.random() * 10 + 1);
+    return images[randomNum];
+  }
 );
