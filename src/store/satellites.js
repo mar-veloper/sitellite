@@ -12,7 +12,7 @@ const slice = createSlice({
     lastFetch: null,
     images: { ...images },
     specificSatellite: {
-      data: [],
+      data: {},
       lastFetch: null,
     },
   },
@@ -101,7 +101,7 @@ export const getSatellites = createSelector(
 
 export const getSpecificSatelliteData = createSelector(
   (state) => state.satellites.specificSatellite,
-  (specificSatellite) => [specificSatellite.data]
+  (specificSatellite) => specificSatellite.data
 );
 
 export const getSatelliteManufacturers = createSelector(
