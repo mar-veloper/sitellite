@@ -2,10 +2,10 @@ a {
   color: white;
 }
 
-ul {
+.navBar ul {
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 100vw;
   display: grid;
   text-align: center;
   grid-template-columns: 1fr 1fr 1fr 1fr;

@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import { Switch, Route, Redirect, Router } from "react-router-dom";
 
 import "./styles/App.css";
+
 import configureStore from "./store/configureStore";
 import Satellites from "./components/Satellites";
 import SpecificSatellite from "./components/SpecificSatellite";

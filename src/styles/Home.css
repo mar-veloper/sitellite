@@ -1,11 +1,3 @@
-h1 {
-  font-size: 5rem;
-  font-weight: 800;
-  letter-spacing: 0.09rem;
-  opacity: 80%;
-  margin: 16px 0;
-}
-
 .container-home {
   background-image: url(../img/main-bg-mobile.png);
   background-size: 100%;

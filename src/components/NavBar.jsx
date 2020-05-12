@@ -18,7 +18,7 @@ const NavBar = () => {
         </li>
         <li>
           {" "}
-          <NavLink to="satellites">
+          <NavLink to="/satellites">
             <div className="icon">
               <img src={svg.satellite} alt="hello" />
             </div>
