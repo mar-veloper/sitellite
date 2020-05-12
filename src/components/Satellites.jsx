@@ -4,11 +4,11 @@ import {
   loadSatellites,
   getSatellites,
   getSatelliteManufacturers,
-  getRandomSatelliteImage,
+  getSatellitesImages,
 } from "../store/satellites";
-import { Link } from "react-router-dom";
-
 import "../styles/Satellites.css";
+import SatelliteCard from "./SatelliteCard";
+import Title from "./common/PageTitle";
 
 const Satellites = () => {
   const dispatch = useDispatch();
@@ -19,31 +19,31 @@ const Satellites = () => {
 
   const satellites = useSelector(getSatellites);
   const manufacturers = useSelector(getSatelliteManufacturers).sort();
+  const satImg = useSelector(getSatellitesImages);
 
   return (
-    <div>
-      {manufacturers.map((manufacturer, index) => (
-        <div key={index}>
-          <h3>{manufacturer}</h3>
-          <div>
-            {satellites.map(
-              (
-                { manufacturer: currentManufacturer, payload_id, nationality },
-                index
-              ) =>
-                manufacturer === currentManufacturer && (
-                  <Link key={index} to={`/satellites/${payload_id}`}>
-                    <div style={sample}>
-                      <p>{payload_id}</p>
-                      <p>{nationality}</p>
-                    </div>
-                  </Link>
-                )
-            )}
+    <>
+      <Title.PageTitle title="Satellites" />
+      <div className="container-satellites">
+        {manufacturers.map((manufacturer, index) => (
+          <div key={index} className="card-container">
+            <Title.SectionTitle title={manufacturer} />
+            <div key={index} className="card-deck">
+              <SatelliteCard
+                items={satellites}
+                cardDeckTitle={manufacturer}
+                img={satImg}
+                link={`/satellites`}
+              />
+            </div>
           </div>
+        ))}
+        <div className="fadedBottom">
+          {" "}
+          <span className="scroll-down">Scroll down ↓</span>
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 };
 

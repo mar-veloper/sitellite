@@ -7,6 +7,7 @@ import {
 } from "../store/satellites";
 
 import "../styles/SpecificSatellite.css";
+import Title from "./common/PageTitle";
 
 const SpecificSatellite = ({ match }) => {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const SpecificSatellite = ({ match }) => {
   const apoapsis = orbit_params && Math.ceil(orbit_params.apoapsis_km);
   const inclination = orbit_params && Math.ceil(orbit_params.inclination_deg);
   const satellitePeriod = orbit_params && Math.ceil(orbit_params.period_min);
+  const lifespace = orbit_params && Math.ceil(orbit_params.lifespan_years);
 
   console.log({ periapsis });
   console.log({ apoapsis });
@@ -44,7 +46,7 @@ const SpecificSatellite = ({ match }) => {
 
   return (
     <div className="container-specificSatellite">
-      <h1>{payload_id}</h1>
+      <Title.PageTitle title={payload_id} />
       <div className="satellite-img ">
         <img src={randomSatImg} alt={payload_id} />
       </div>
@@ -68,9 +70,7 @@ const SpecificSatellite = ({ match }) => {
           <li>
             Lifespan:{" "}
             <strong>
-              {orbit_params.lifespan_years > 1
-                ? `${orbit_params.lifespan_years} years`
-                : `${orbit_params.lifespan_years} year`}
+              {lifespace > 1 ? `${lifespace} years` : `${lifespace} year`}
             </strong>
           </li>
           <li>
@@ -94,7 +94,9 @@ const SpecificSatellite = ({ match }) => {
         </ul>
       </div>
 
-      <div class="gradientback"></div>
+      <div className="fadedBottom">
+        <span className="scroll-down">Scroll down ↓</span>
+      </div>
     </div>
   );
 };

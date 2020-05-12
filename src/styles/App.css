@@ -15,7 +15,7 @@ a {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 5rem;
   white-space: pre-wrap;
   font-weight: 800;
   letter-spacing: 0.09rem;
@@ -24,9 +24,61 @@ h1 {
   text-align: center;
 }
 
+.page-title {
+  font-size: 2rem;
+  white-space: pre-wrap;
+  font-weight: 800;
+  letter-spacing: 0.09rem;
+  opacity: 80%;
+  margin: 2rem 0 0;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  margin-left: 1rem;
+}
+
 .navBar {
   width: 100%;
   height: 64px;
   position: fixed;
   bottom: 8vh;
+}
+
+.scroll-down {
+  position: absolute;
+  color: rgb(255, 255, 255);
+  left: 40vw;
+  top: 0;
+  animation: scrollDown linear infinite 15s;
+}
+
+@keyframes scrollDown {
+  0% {
+    opacity: 0;
+    top: 0;
+  }
+
+  10% {
+    opacity: 1;
+    top: 5vh;
+  }
+
+  15% {
+    opacity: 1;
+    top: 5vh;
+  }
+
+  99% {
+    opacity: 0;
+    top: 5vh;
+  }
+
+  100% {
+    opacity: 0;
+    top: 500vh;
+  }
 }
