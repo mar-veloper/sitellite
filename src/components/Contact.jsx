@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Contact.css";
 import Title from "../components/common/PageTitle";
+import { useDispatch } from "react-redux";
 
 const Contact = () => {
+  const dispatch = useDispatch();
+
+  const [isValidated, setIsValidated] = useState(false);
   const [formValue, setFormValue] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const [errorMessage, setErrorMessage] = useState({
+  const [errorMessage] = useState({
     name: "",
     email: "",
     message: "",
@@ -18,38 +22,97 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const originalFormValue = { ...formValue };
-    const originalErrorMessage = { ...errorMessage };
+    const newFormValue = {
+      name: "",
+      email: "",
+      message: "",
+    };
 
-    Object.keys(formValue).forEach((key) => {
-      switch (true) {
-        case !formValue[key]:
-          setErrorMessage({
-            errorMessage,
-            [key]: `Please enter ${key}`,
-          });
-          return;
-        case formValue["name"].length < 2:
-          setErrorMessage({
-            errorMessage,
-            ["name"]: "Name required minimum 2 characters.",
-          });
-          return;
-
-        default:
-          setErrorMessage(originalErrorMessage);
-          return;
-      }
-    });
+    try {
+      setFormValue(newFormValue);
+      dispatch({ type: "success", payload: { message: "Message sent." } });
+    } catch (error) {
+      setFormValue(originalFormValue);
+      dispatch({
+        type: "Error",
+        payload: { message: "Error sending message." },
+      });
+    }
   };
-
-  console.log({ errorMessage });
 
   const handleChange = (e) => {
     const targetName = e.target.name;
     const targetValue = e.currentTarget.value;
 
     setFormValue({ ...formValue, [targetName]: targetValue });
+
+    const validateEmail = (email) => {
+      let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(String(email).toLowerCase());
+    };
+
+    switch (targetName) {
+      case "name":
+        switch (true) {
+          case !targetValue:
+            errorMessage.name = "Please insert a name";
+            break;
+          case targetValue.length < 2:
+            errorMessage.name = "Name requires more than 1 character.";
+            break;
+
+          default:
+            errorMessage.name = "";
+            break;
+        }
+        break;
+
+      case "email":
+        switch (true) {
+          case !targetValue:
+            errorMessage.email = "Please enter an email.";
+            break;
+          case targetValue && !validateEmail(targetValue):
+            errorMessage.email = "Please enter a valid email.";
+            break;
+          default:
+            errorMessage.email = "";
+            break;
+        }
+        break;
+
+      case "message":
+        switch (true) {
+          case !targetValue:
+            errorMessage.message = "Please insert a message.";
+            break;
+          case targetValue.length < 10:
+            errorMessage.message =
+              "Message requires more that 10 or more character.";
+            break;
+
+          default:
+            errorMessage.message = "";
+            break;
+        }
+        break;
+
+      default:
+        setIsValidated(true);
+        break;
+    }
   };
+
+  useEffect(() => {
+    return !errorMessage.name &&
+      !errorMessage.email &&
+      !errorMessage.message &&
+      formValue.message &&
+      formValue.name &&
+      formValue.email
+      ? setIsValidated(true)
+      : setIsValidated(false);
+  }, [formValue, errorMessage]);
 
   return (
     <div className="container-contact">
@@ -121,7 +184,9 @@ const Contact = () => {
           onChange={(e) => handleChange(e)}
         />
 
-        <button>Send</button>
+        <button className="main-button" disabled={!isValidated}>
+          Send
+        </button>
       </form>
       <div className="fadedBottom">
         <span className="scroll-down">Scroll down ↓</span>

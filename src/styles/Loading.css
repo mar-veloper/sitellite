@@ -1,0 +1,10 @@
+.container-loading {
+  background-image: url(../img/main-bg-mobile.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  height: 100vh;
+  padding: 16px;
+  text-align: center;
+  justify-items: center;
+}

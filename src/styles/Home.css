@@ -9,7 +9,7 @@
   justify-items: center;
 }
 
-button {
+.main-button {
   background-image: radial-gradient(#921fbe, #431157);
   border: 10px #762993 solid;
   /* background-image: radial-gradient(#cd53fa, #5f157a);
@@ -20,4 +20,9 @@ button {
   color: white;
   margin-top: 100px;
   outline: 0;
+}
+
+.main-button:disabled,
+.main-button[disabled] {
+  opacity: 0.5;
 }

@@ -8,7 +8,7 @@ const slice = createSlice({
   name: "satellites",
   initialState: {
     list: [],
-    loading: false,
+    loading: true,
     lastFetch: null,
     images: { ...images },
     specificSatellite: {
@@ -43,6 +43,13 @@ const slice = createSlice({
     specificSatelliteRequestFailed: (satellites, action) => {
       satellites.loading = false;
     },
+
+    loadPageStarted: (satellites, action) => {
+      satellites.loading = true;
+    },
+    loadPageEnded: (satellites, action) => {
+      satellites.loading = false;
+    },
   },
 });
 
@@ -53,6 +60,8 @@ const {
   specificSatelliteRequested,
   specificSatelliteReceived,
   specificSatelliteRequestFailed,
+  loadPageStarted,
+  loadPageEnded,
 } = slice.actions;
 
 export default slice.reducer;
@@ -122,4 +131,11 @@ export const getRandomSatelliteImage = createSelector(
     let randomNum = Math.floor(Math.random() * 10 + 1);
     return images[randomNum];
   }
+);
+
+export const endPageloading = (dispatch) => dispatch(loadPageEnded());
+
+export const getLoadingStatus = createSelector(
+  (state) => state.satellites,
+  (satellites) => satellites.loading
 );

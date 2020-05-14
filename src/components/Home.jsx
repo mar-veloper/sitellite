@@ -1,4 +1,5 @@
 import React from "react";
+
 import "../styles/Home.css";
 import { Link } from "react-router-dom";
 
@@ -10,7 +11,7 @@ const Home = () => {
 
       <Link to="/satellites">
         {" "}
-        <button>See satellites</button>
+        <button className="main-button">See satellites</button>
       </Link>
     </div>
   );
