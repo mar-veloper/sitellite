@@ -1,0 +1,14 @@
+.container-about {
+  padding: 0 1rem 30vh;
+}
+
+.container-about p {
+  font-size: 2rem;
+  white-space: pre-line;
+  line-height: 3rem;
+}
+
+.about-icons {
+  font-size: 1rem !important;
+  line-height: 1rem !important;
+}

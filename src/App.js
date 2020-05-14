@@ -1,10 +1,11 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { Switch, Route, Redirect, Router } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import "./styles/App.css";
-
 import configureStore from "./store/configureStore";
+
 import Satellites from "./components/Satellites";
 import SpecificSatellite from "./components/SpecificSatellite";
 import Home from "./components/Home";
@@ -18,6 +19,13 @@ const store = configureStore();
 function App() {
   return (
     <div className="container">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        closeOnClick
+        draggable
+        pauseOnHover
+      />
       <Provider store={store}>
         <Switch>
           <Route path="/loading" component={Satellites} />

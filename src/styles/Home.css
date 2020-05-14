@@ -19,4 +19,5 @@ button {
   font-size: 1rem;
   color: white;
   margin-top: 100px;
+  outline: 0;
 }

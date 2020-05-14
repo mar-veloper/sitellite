@@ -47,8 +47,4 @@ const Satellites = () => {
   );
 };
 
-const sample = {
-  marginBottom: "30px",
-};
-
 export default Satellites;
