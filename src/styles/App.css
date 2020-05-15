@@ -21,7 +21,7 @@ h1 {
   white-space: pre-wrap;
   font-weight: 800;
   letter-spacing: 0.09rem;
-  opacity: 80%;
+  opacity: 0.8;
   margin: 2rem 0 0;
   text-align: center;
 }
@@ -85,7 +85,7 @@ h1 {
     white-space: pre-wrap;
     font-weight: 800;
     letter-spacing: 0.09rem;
-    opacity: 80%;
+    opacity: 0.8;
     margin: 16px 0;
     text-align: center;
   }
