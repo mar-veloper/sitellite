@@ -10,9 +10,8 @@ import "../styles/Satellites.css";
 import SatelliteCard from "./SatelliteCard";
 import Title from "./common/PageTitle";
 
-const Satellites = () => {
+const Satellites = ({}) => {
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(loadSatellites());
   }, []);
@@ -23,8 +22,8 @@ const Satellites = () => {
 
   return (
     <>
-      <Title.PageTitle title="Satellites" />
       <div className="container-satellites">
+        <Title.PageTitle title="Satellites" />
         {manufacturers.map((manufacturer, index) => (
           <div key={index} className="card-container">
             <Title.SectionTitle title={manufacturer} />

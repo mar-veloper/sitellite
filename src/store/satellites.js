@@ -29,6 +29,7 @@ const slice = createSlice({
 
     satellitesRequestFailed: (satellites, action) => {
       satellites.loading = false;
+      window.location = "/page-not-found";
     },
     specificSatelliteRequested: (satellites, action) => {
       satellites.loading = true;
@@ -42,6 +43,7 @@ const slice = createSlice({
 
     specificSatelliteRequestFailed: (satellites, action) => {
       satellites.loading = false;
+      window.location = "/page-not-found";
     },
 
     loadPageStarted: (satellites, action) => {
@@ -60,7 +62,6 @@ const {
   specificSatelliteRequested,
   specificSatelliteReceived,
   specificSatelliteRequestFailed,
-  loadPageStarted,
   loadPageEnded,
 } = slice.actions;
 

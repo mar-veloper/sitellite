@@ -1,10 +1,82 @@
 .container-loading {
   background-image: url(../img/main-bg-mobile.png);
   background-size: 100%;
+  height: 100vh;
   background-repeat: no-repeat;
   max-width: 100%;
-  height: 100vh;
-  padding: 16px;
-  text-align: center;
+  display: grid;
   justify-items: center;
+}
+
+.loading-text {
+  margin-top: 40vh;
+  font-size: 3rem;
+  font-weight: 700;
+  z-index: 2;
+  opacity: 0.8;
+}
+.loading-img {
+  width: 32px;
+}
+.satellite {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: silver;
+  animation: orbit 6s infinite linear;
+  position: absolute;
+  left: 60%;
+  margin-left: -20px;
+  transform-origin: 100px center;
+}
+
+.satellite-2 {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: silver;
+  animation: orbit-opposite 6s infinite linear;
+  position: absolute;
+  left: 60%;
+  margin-left: 20px;
+  transform-origin: 100px center;
+}
+.ring {
+  width: 10px;
+  height: 10px;
+  animation: sideToSide 5s infinite ease-in-out alternate;
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  margin-left: -150px;
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+@keyframes orbit-opposite {
+  to {
+    transform: rotate(-1turn);
+  }
+}
+
+@keyframes sideToSide {
+  to {
+    transform: translateX(50px);
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  .container-loading {
+    background: none;
+  }
+
+  .ring {
+    top: 45%;
+    left: 50%;
+    margin-left: -150px;
+  }
 }

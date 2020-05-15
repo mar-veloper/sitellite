@@ -12,17 +12,31 @@
 .main-button {
   background-image: radial-gradient(#921fbe, #431157);
   border: 10px #762993 solid;
-  /* background-image: radial-gradient(#cd53fa, #5f157a);
-  border: 8px #5d107c solid; */
   padding: 16px 64px;
   border-radius: 50px;
   font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.05rem;
   color: white;
   margin-top: 100px;
   outline: 0;
+  cursor: pointer;
 }
 
 .main-button:disabled,
 .main-button[disabled] {
   opacity: 0.5;
+  cursor: default;
+}
+
+@media only screen and (min-width: 960px) {
+  .container-home {
+    padding: 0;
+    height: auto;
+    background-image: none;
+  }
+  .container-home p {
+    font-size: 2rem;
+    margin-top: -2rem;
+  }
 }

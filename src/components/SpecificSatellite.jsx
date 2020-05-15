@@ -46,11 +46,13 @@ const SpecificSatellite = ({ match }) => {
 
   return (
     <div className="container-specificSatellite">
-      <Title.PageTitle title={payload_id} />
-      <div className="satellite-img ">
-        <img src={randomSatImg} alt={payload_id} />
+      <div className="column-right">
+        <Title.PageTitle title={payload_id} />
+        <div className="satellite-img ">
+          <img src={randomSatImg} alt={payload_id} />
+        </div>
       </div>
-      <div>
+      <div className="column-left">
         <ul>
           <li>
             Owner: <strong>{customers}</strong>
@@ -94,7 +96,7 @@ const SpecificSatellite = ({ match }) => {
         </ul>
       </div>
 
-      <div className="fadedBottom">
+      <div className="fadedBottom mobile">
         <span className="scroll-down">Scroll down ↓</span>
       </div>
     </div>

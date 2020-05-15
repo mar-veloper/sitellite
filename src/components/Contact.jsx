@@ -188,7 +188,7 @@ const Contact = () => {
           Send
         </button>
       </form>
-      <div className="fadedBottom">
+      <div className="fadedBottom mobile">
         <span className="scroll-down">Scroll down ↓</span>
       </div>
     </div>
