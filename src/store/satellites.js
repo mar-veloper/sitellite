@@ -122,15 +122,15 @@ export const getSatelliteManufacturers = createSelector(
 );
 
 export const getSatellitesImages = createSelector(
-  (state) => state.satellites.images,
-  (images) => images
+  (state) => state.satellites,
+  (satellites) => satellites.images
 );
 
 export const getRandomSatelliteImage = createSelector(
-  (state) => state.satellites.images,
-  (images) => {
+  (state) => state.satellites,
+  (satellites) => {
     let randomNum = Math.floor(Math.random() * 10 + 1);
-    return images[randomNum];
+    return satellites.images[randomNum];
   }
 );
 
