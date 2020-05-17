@@ -7,12 +7,13 @@ const About = () => {
     <div className="container-about">
       <Title.PageTitle title="About" />
       <p>
-        <a href="">Sitellite</a> is a microsite school project, designed and
-        developed by <a href="https://jonmartamon.com/"> Jonmar Tamon</a>. It
-        intends to provide information about satellites that orbits the earth.
+        <a href="https://sitellite.jonmartamon.com/">Sitellite</a> is a
+        microsite school project, designed and developed by{" "}
+        <a href="https://jonmartamon.com/"> Jonmar Tamon</a>. It intends to
+        provide information about satellites that orbits the earth.
       </p>
       <p>
-        <a href="">Sitellite</a> is using{" "}
+        <a href="https://sitellite.jonmartamon.com/">Sitellite</a> is using{" "}
         <a href="https://github.com/r-spacex/SpaceX-API">Space X API</a> to
         generate satellite payloads.
       </p>
