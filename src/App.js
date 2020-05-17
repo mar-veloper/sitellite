@@ -22,7 +22,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       dispatch(endPageloading);
-    }, 2000);
+    }, 3000);
   }, []);
 
   return (
