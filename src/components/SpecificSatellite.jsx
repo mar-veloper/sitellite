@@ -39,11 +39,6 @@ const SpecificSatellite = ({ match }) => {
   const satellitePeriod = orbit_params && Math.ceil(orbit_params.period_min);
   const lifespace = orbit_params && Math.ceil(orbit_params.lifespan_years);
 
-  console.log({ periapsis });
-  console.log({ apoapsis });
-  console.log({ inclination });
-  console.log({ satellitePeriod });
-
   return (
     <div className="container-specificSatellite">
       <div className="column-right">
