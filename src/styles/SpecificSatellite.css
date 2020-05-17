@@ -68,7 +68,9 @@
   }
 
   .container-specificSatellite .column-right {
-    margin-left: 2rem;
+    margin-left: 0rem;
+    display: grid;
+    justify-items: center;
   }
 
   .satellite-img img {
