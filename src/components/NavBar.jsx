@@ -10,7 +10,7 @@ const NavBar = () => {
         <li>
           <NavLink to="/home">
             <div className="icon">
-              <img src={svg.home} alt="hello" />
+              <img src={svg.home} alt="home icon" />
             </div>
             Home
           </NavLink>
@@ -19,7 +19,7 @@ const NavBar = () => {
           {" "}
           <NavLink to="/satellites">
             <div className="icon">
-              <img src={svg.satellite} alt="hello" />
+              <img src={svg.satellite} alt="satellite icon" />
             </div>
             Satellites
           </NavLink>
@@ -28,7 +28,7 @@ const NavBar = () => {
           {" "}
           <NavLink to="/about">
             <div className="icon">
-              <img src={svg.about} alt="hello" />
+              <img src={svg.about} alt="about icon" />
             </div>
             About
           </NavLink>
@@ -38,7 +38,7 @@ const NavBar = () => {
           {" "}
           <NavLink to="/contact">
             <div className="icon">
-              <img src={svg.contact} alt="hello" />
+              <img src={svg.contact} alt="contact icon" />
             </div>
             Contact
           </NavLink>
