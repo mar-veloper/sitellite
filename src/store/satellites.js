@@ -2,7 +2,7 @@ import { createSlice, createSelector } from "@reduxjs/toolkit";
 import { apiCallBegan } from "./apiCall";
 import moment from "moment";
 
-import images from "../img/images";
+import images from "../media/images";
 
 const slice = createSlice({
   name: "satellites",
