@@ -1,14 +1,16 @@
 import React from "react";
 import "../styles/About.css";
 import Title from "../components/common/PageTitle";
+import moment from "moment";
 
 const About = () => {
+  const currentYear = moment().year();
   return (
     <div className="container-about">
       <Title.PageTitle title="About" />
       <p>
         <a href="https://sitellite.jonmartamon.com/">Sitellite</a> is a
-        microsite school project, designed and developed by{" "}
+        microsite school project, designed and developed by
         <a href="https://jonmartamon.com/"> Jonmar Tamon</a>. It intends to
         provide information about satellites that orbits the earth.
       </p>
@@ -30,6 +32,11 @@ const About = () => {
           {" "}
           www.flaticon.com
         </a>
+      </p>
+
+      <p className="copyright">
+        <a href="https://jonmartamon.com/">Jonmar Tamon</a> - {currentYear}
+        &copy;
       </p>
       <div className="fadedBottom">
         <span className="scroll-down">Scroll down ↓</span>
