@@ -5,7 +5,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100%;
-  background-image: url(../img/sec-bg-mobile.png);
+  background-image: url(../media/sec-bg-mobile.png);
   background-attachment: fixed;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -15,7 +15,7 @@ body {
 
 @media only screen and (min-width: 960px) {
   body {
-    background-image: url(../img/main-bg.jpg);
+    background-image: url(../media/main-bg.jpg);
     width: 100%;
     overflow-x: hidden;
     background-position: bottom center;

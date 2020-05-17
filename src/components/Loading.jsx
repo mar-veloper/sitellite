@@ -1,10 +1,7 @@
 import React from "react";
 import "../styles/Loading.css";
 import { useSelector } from "react-redux";
-import {
-  getRandomSatelliteImage,
-  getSatellitesImages,
-} from "../store/satellites";
+import { getSatellitesImages } from "../store/satellites";
 
 const Loading = () => {
   const img = useSelector(getSatellitesImages);
