@@ -40,8 +40,8 @@ function App() {
           />
           <Switch>
             <Route path="/loading" component={Satellites} />
-            <Route path="/satellites" exact component={Satellites} />
-            <Route path="/satellites/:id" component={SpecificSatellite} />
+            <Route exact path="/satellites" component={Satellites} />
+            <Route exact path="/satellites/:id" component={SpecificSatellite} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/home" component={Home} />
