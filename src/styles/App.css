@@ -6,16 +6,6 @@ a {
   text-decoration: none;
 }
 
-h1 {
-  font-size: 5rem;
-  white-space: pre-wrap;
-  font-weight: 800;
-  letter-spacing: 0.09rem;
-  opacity: 80%;
-  margin: 16px 0;
-  text-align: center;
-}
-
 .page-title {
   font-size: 2rem;
   white-space: pre-wrap;
@@ -78,16 +68,6 @@ h1 {
 @media only screen and (min-width: 960px) {
   .scroll-down {
     left: 50%;
-  }
-
-  h1 {
-    font-size: 20rem;
-    white-space: pre-wrap;
-    font-weight: 800;
-    letter-spacing: 0.09rem;
-    opacity: 0.8;
-    margin: 16px 0;
-    text-align: center;
   }
 
   .page-title {

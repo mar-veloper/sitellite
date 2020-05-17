@@ -29,7 +29,17 @@
   cursor: default;
 }
 
-@media only screen and (min-width: 960px) {
+h1 {
+  font-size: 5rem;
+  white-space: pre-wrap;
+  font-weight: 800;
+  letter-spacing: 0.09rem;
+  opacity: 80%;
+  margin: 16px 0;
+  text-align: center;
+}
+
+@media only screen and (min-height: 800px) {
   .container-home {
     padding: 0;
     height: auto;
@@ -38,5 +48,20 @@
   .container-home p {
     font-size: 2rem;
     margin-top: -2rem;
+  }
+  h1 {
+    font-size: 15rem;
+    white-space: pre-wrap;
+    font-weight: 800;
+    letter-spacing: 0.09rem;
+    opacity: 0.8;
+    margin: 16px 0;
+    text-align: center;
+  }
+}
+
+@media only screen and (min-height: 900px) {
+  h1 {
+    font-size: 20rem;
   }
 }
