@@ -4,7 +4,7 @@ body {
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  width: 100%;
+  max-width: 1920px;
   background-image: url(../media/rsz_sec-bg-mobile.png);
   background-attachment: fixed;
   background-size: cover;
@@ -15,8 +15,8 @@ body {
 
 @media only screen and (min-width: 960px) {
   body {
+    margin: 0 auto;
     background-image: url(../media/rsz_main-bg.jpg);
-    width: 100%;
     overflow-x: hidden;
     background-position: center bottom;
   }

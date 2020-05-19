@@ -1,5 +1,6 @@
 .container-satellites {
   margin: 3rem 0;
+  max-width: 1920px !important;
 }
 
 .card-deck {
