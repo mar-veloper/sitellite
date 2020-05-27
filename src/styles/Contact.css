@@ -25,8 +25,8 @@
 .form-textarea {
   font-size: 1rem;
   font-family: inherit;
-  width: 100% !important;
-  height: 100px !important;
+  width: 100% !important /* stop using the important rule */;
+  height: 100px !important; /* stop using the important rule */
   padding: 1rem;
   box-sizing: border-box;
   border-radius: 10px;
@@ -59,7 +59,7 @@
   }
 
   .form-textarea {
-    height: 150px !important;
+    height: 150px !important; /* stop using the important rule */
   }
 }
 
