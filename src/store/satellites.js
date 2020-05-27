@@ -5,7 +5,7 @@ import moment from "moment";
 import images from "../media/images";
 
 const slice = createSlice({
-  name: "satellites",
+  name: "@satellites",
   initialState: {
     list: [],
     loading: true,
@@ -17,52 +17,52 @@ const slice = createSlice({
     },
   },
   reducers: {
-    satellitesRequested: (satellites, action) => {
+    SATELLITES_REQUESTED: (satellites, action) => {
       satellites.loading = true;
     },
 
-    satellitesReceived: (satellites, action) => {
+    SATELLITES_RECEIVED: (satellites, action) => {
       satellites.list = action.payload;
       satellites.loading = false;
       satellites.lastFetch = Date.now();
     },
 
-    satellitesRequestFailed: (satellites, action) => {
+    SATELLITES_REQUEST_FAILED: (satellites, action) => {
       satellites.loading = false;
       window.location = "/page-not-found";
     },
-    specificSatelliteRequested: (satellites, action) => {
+    SPECIFIC_SATELLITE_REQUESTED: (satellites, action) => {
       satellites.loading = true;
     },
 
-    specificSatelliteReceived: (satellites, action) => {
+    SPECIFIC_SATELLITE_RECEIVED: (satellites, action) => {
       satellites.specificSatellite.data = action.payload;
       satellites.loading = false;
       satellites.specificSatellite.lastFetch = Date.now();
     },
 
-    specificSatelliteRequestFailed: (satellites, action) => {
+    SPECIFIC_SATELLITE_REQUEST_FAILED: (satellites, action) => {
       satellites.loading = false;
       window.location = "/page-not-found";
     },
 
-    loadPageStarted: (satellites, action) => {
+    LOAD_PAGE_STARTED: (satellites, action) => {
       satellites.loading = true;
     },
-    loadPageEnded: (satellites, action) => {
+    LOAD_PAGE_ENDED: (satellites, action) => {
       satellites.loading = false;
     },
   },
 });
 
 const {
-  satellitesRequested,
-  satellitesReceived,
-  satellitesRequestFailed,
-  specificSatelliteRequested,
-  specificSatelliteReceived,
-  specificSatelliteRequestFailed,
-  loadPageEnded,
+  SATELLITES_REQUESTED,
+  SATELLITES_RECEIVED,
+  SATELLITES_REQUEST_FAILED,
+  SPECIFIC_SATELLITE_REQUESTED,
+  SPECIFIC_SATELLITE_RECEIVED,
+  SPECIFIC_SATELLITE_REQUEST_FAILED,
+  LOAD_PAGE_ENDED,
 } = slice.actions;
 
 export default slice.reducer;
@@ -76,11 +76,12 @@ export const loadSatellites = () => (dispatch, getState) => {
   if (diffInMinutes < 30) return;
 
   return dispatch(
-    apiCallBegan({ // see, here would a been better to see API_CALL_BEGAN
+    apiCallBegan({
+      // see, here would a been better to see API_CALL_BEGAN
       url,
-      onStart: satellitesRequested.type,
-      onSuccess: satellitesReceived.type,
-      onError: satellitesRequestFailed.type,
+      onStart: SATELLITES_REQUESTED.type,
+      onSuccess: SATELLITES_RECEIVED.type,
+      onError: SATELLITES_REQUEST_FAILED.type,
     })
   );
 };
@@ -97,9 +98,9 @@ export const loadSpecificSatellite = (payloadId) => (dispatch, getState) => {
   return dispatch(
     apiCallBegan({
       url: `/${payloadId}`,
-      onStart: specificSatelliteRequested.type,
-      onSuccess: specificSatelliteReceived.type,
-      onError: specificSatelliteRequestFailed.type,
+      onStart: SPECIFIC_SATELLITE_REQUESTED.type,
+      onSuccess: SPECIFIC_SATELLITE_RECEIVED.type,
+      onError: SPECIFIC_SATELLITE_REQUEST_FAILED.type,
     })
   );
 };
@@ -134,7 +135,7 @@ export const getRandomSatelliteImage = createSelector(
   }
 );
 
-export const endPageloading = (dispatch) => dispatch(loadPageEnded());
+export const endPageloading = (dispatch) => dispatch(LOAD_PAGE_ENDED());
 
 export const getLoadingStatus = createSelector(
   (state) => state.satellites,

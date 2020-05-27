@@ -3,9 +3,13 @@ import * as actions from "../apiCall";
 
 const api = ({ dispatch }) => (next) => async (action) => {
   // destructure your action... const {type, payload} = action;
-  if (action.type !== actions.apiCallBegan.type) return next(action);
 
-  const { url, method, data, onStart, onSuccess, onError } = action.payload;
+  const { type, payload } = action;
+  const { apiCallBegan, apiCallSuccess, apiCallFailed } = actions;
+
+  if (type !== apiCallBegan.type) return next(action);
+
+  const { url, method, data, onStart, onSuccess, onError } = payload;
 
   onStart && dispatch({ type: onStart });
 
@@ -20,12 +24,12 @@ const api = ({ dispatch }) => (next) => async (action) => {
     });
 
     // General
-    dispatch(actions.apiCallSuccess(response.data));
+    dispatch(apiCallSuccess(response.data));
     // Specific
     if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
   } catch (error) {
     // General
-    dispatch(actions.apiCallFailed(error.message));
+    dispatch(apiCallFailed(error.message));
     // Specific
     if (onError) return dispatch({ type: onError, payload: error.message });
   }

@@ -2,12 +2,13 @@ import { toast } from "react-toastify";
 
 const toastInfo = (store) => (next) => (action) => {
   // destructure... const {type, payload} = action;
-  switch (action.type) {
+  const { type, payload } = action;
+  switch (type) {
     case "error":
-      return toast.error(action.payload.message);
+      return toast.error(payload.message);
 
     case "success":
-      return toast.success(action.payload.message);
+      return toast.success(payload.message);
     default:
       return next(action);
   }
