@@ -2,6 +2,7 @@ import axios from "axios";
 import * as actions from "../apiCall";
 
 const api = ({ dispatch }) => (next) => async (action) => {
+  // destructure your action... const {type, payload} = action;
   if (action.type !== actions.apiCallBegan.type) return next(action);
 
   const { url, method, data, onStart, onSuccess, onError } = action.payload;

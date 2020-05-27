@@ -68,7 +68,7 @@
   }
 
   .container-specificSatellite .column-right {
-    margin-left: 0rem;
+    margin-left: 0rem;  /* if its a zero value, you can leave out the "rem" or "px" or "em"*/
     display: grid;
     justify-items: center;
   }

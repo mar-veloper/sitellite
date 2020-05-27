@@ -76,7 +76,7 @@ export const loadSatellites = () => (dispatch, getState) => {
   if (diffInMinutes < 30) return;
 
   return dispatch(
-    apiCallBegan({
+    apiCallBegan({ // see, here would a been better to see API_CALL_BEGAN
       url,
       onStart: satellitesRequested.type,
       onSuccess: satellitesReceived.type,
