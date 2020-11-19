@@ -1,10 +1,10 @@
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-
-  [[redirects]]
-  from = "/satellites/static/:splat"
+from = "/satellites/static/*"
   to = "/static"
   status = 200
   force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
