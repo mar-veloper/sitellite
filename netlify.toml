@@ -1,8 +1,9 @@
+[build]
 command = "CI= npm run build"
 
 [[redirects]]
-from = "/satellites/static/*"
-  to = "/static"
+  from = "/satellites/static/*"
+  to = "/static/:splat"
   status = 200
   force = true
 
