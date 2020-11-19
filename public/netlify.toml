@@ -4,7 +4,7 @@
   status = 200
 
   [[redirects]]
-  from = "/satellites/static/*"
+  from = "/satellites/static/:splat"
   to = "/static"
   status = 200
   force = true
