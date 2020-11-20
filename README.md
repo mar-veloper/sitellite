@@ -1,7 +1,7 @@
 # [Sitellite](https://5fb6ab0a445dd200083259ed--pedantic-jang-ed7679.netlify.app/)
 
 _Sitellite is a microsite school project, designed and developed by Jonmar Tamon. It intends to provide information about satellites that orbits the earth._
-**[Click here to see](https://5fb6ab0a445dd200083259ed--pedantic-jang-ed7679.netlify.app/)**
+**[Click here to see live site.](https://5fb6ab0a445dd200083259ed--pedantic-jang-ed7679.netlify.app/)**
 
 ## Why I created this project?
 
